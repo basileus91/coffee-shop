@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.coffeshop.app",
+      "nativeLanguage": "ro"
+    },
+    "jhipsterVersion": "6.1.2",
+    "applicationType": "monolith",
+    "baseName": "coffeshop",
+    "packageName": "com.coffeshop.app",
+    "packageFolder": "com/coffeshop/app",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NDAyNzdmN2Q3NzIwZjE1MzA0MjAzM2NmYzZmMDJlOTY4NjA3OGM3MjFmZWFjMjhlOTk3ODM0YWI2NmExODE2MDI3NzBjMzIzOWY3MjlkMDc4OTg2OWI2MjZkOGVhZjk2ZTk0YjdjZTMwZGNiNDUwMDdmZGUxMzg3NzdlMGI2ZjA=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "ro",
+    "languages": ["ro", "en", "ru"]
+  }
+}
