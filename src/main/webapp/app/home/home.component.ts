@@ -5,6 +5,7 @@ import { JhiEventManager } from 'ng-jhipster';
 import { LoginModalService, AccountService, Account } from 'app/core';
 import { CoffeService } from 'app/entities/coffe';
 import { Coffe } from 'app/shared/model/coffe.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'jhi-home',
@@ -48,5 +49,9 @@ export class HomeComponent implements OnInit {
 
   login() {
     this.modalRef = this.loginModalService.open();
+  }
+
+  onSubmit(form: NgForm) {
+    console.log(form);
   }
 }

@@ -11,6 +11,7 @@ export interface IOrder {
   orderDate?: Moment;
   clients?: IClient[];
   client?: IClient;
+  status?: OrderStatus;
 }
 
 export class Order implements IOrder {
@@ -23,7 +24,8 @@ export class Order implements IOrder {
     public socialMedia?: string,
     public orderDate?: Moment,
     public clients?: IClient[],
-    public client?: IClient
+    public client?: IClient,
+    public status?: OrderStatus
   ) {
     this.paymentMethod = this.paymentMethod || false;
   }

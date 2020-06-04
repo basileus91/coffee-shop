@@ -1,6 +1,7 @@
 package com.coffeshop.app.web.rest;
 
 import com.coffeshop.app.domain.Order;
+import com.coffeshop.app.domain.OrderStatus;
 import com.coffeshop.app.repository.OrderRepository;
 import com.coffeshop.app.web.rest.errors.BadRequestAlertException;
 
@@ -51,6 +52,7 @@ public class OrderResource {
         if (order.getId() != null) {
             throw new BadRequestAlertException("A new order cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        order.setStatus(OrderStatus.NEW);
         Order result = orderRepository.save(order);
         return ResponseEntity.created(new URI("/api/orders/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))

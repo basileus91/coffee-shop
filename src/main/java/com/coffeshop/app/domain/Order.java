@@ -44,6 +44,9 @@ public class Order implements Serializable {
     @Column(name = "order_date")
     private Instant orderDate;
 
+    @Column(name = "status")
+    private OrderStatus status;
+
     /**
      * A relationship
      */
@@ -152,6 +155,19 @@ public class Order implements Serializable {
         return this;
     }
 
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public Order status(OrderStatus status) {
+        this.status = status;
+        return this;
+    }
+
     public Order addClient(Client client) {
         this.clients.add(client);
         client.setOrder(this);
@@ -208,6 +224,7 @@ public class Order implements Serializable {
             ", recommandation='" + getRecommandation() + "'" +
             ", socialMedia='" + getSocialMedia() + "'" +
             ", orderDate='" + getOrderDate() + "'" +
+            ", status='" + getStatus() + "'" +
             "}";
     }
 }

@@ -48,7 +48,12 @@
                     <div class="card-body">
                         <h5 class="card-title">{{coffe?.name}}</h5>
                         <p class="card-text text-wrapper" [title]="coffe?.description">{{coffe?.description}}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <form style="padding-left: 5%;" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                            <div class="row">
+                                <input type="number" placeholder="Introduceți în coș" ngModel name="amount">
+                                <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Adăuga</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
