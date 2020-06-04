@@ -1,0 +1,68 @@
+entity Category {
+	name String
+}
+
+entity Coffe {
+	name String 
+	countryName String
+    description String
+    quantity Long
+    price Double
+    photo Blob
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Client {
+	firstName String
+    lastName String
+    phoneNumber String
+    email String
+    deliveryAddress String
+    feedback String
+}
+
+entity Order {
+	commandId String
+    paymentMethod Boolean
+    aboutUs String
+    recommandation String
+    socialMedia String
+	orderDate Instant
+}
+
+entity CoffeAmount {
+	availableAmount Long
+    sokdAmount Long
+    
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Coffe to CoffeAmount{coffe},
+	/**
+	* A relationship
+	*/
+	CoffeAmount to
+	/**
+	* Another side of the same relationship
+	*/
+	Coffe{coffeAmount}
+}
+
+relationship OneToOne {
+	Coffe{region} to Category
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Client to Order{client},
+	/**
+	* A relationship
+	*/
+	Order to
+	/**
+	* Another side of the same relationship
+	*/
+	Client{order}
+}

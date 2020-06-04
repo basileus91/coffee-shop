@@ -1,0 +1,29 @@
+{
+  "coffeshopApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "createLabel": "Создать новый Order",
+        "createOrEditLabel": "Создать или отредактировать Order",
+        "notFound": "No Order found"
+      },
+      "created": "Новый Order создан с идентификатором {{ param }}",
+      "updated": "Order обновлен с идентификатором {{ param }}",
+      "deleted": "Order удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "commandId": "Command Id",
+      "paymentMethod": "Payment Method",
+      "aboutUs": "About Us",
+      "recommandation": "Recommandation",
+      "socialMedia": "Social Media",
+      "orderDate": "Order Date",
+      "client": "Client",
+      "client": "Client"
+    }
+  }
+}

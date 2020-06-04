@@ -1,0 +1,54 @@
+{
+    "name": "Order",
+    "fields": [
+        {
+            "fieldName": "commandId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentMethod",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "aboutUs",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "recommandation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "socialMedia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orderDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "order",
+            "javadoc": "A relationship",
+            "relationshipName": "client"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "order",
+            "relationshipName": "client",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200604164209",
+    "entityTableName": "order",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

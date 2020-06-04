@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coffeshopApp.client.home.title">Clients</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-client" [routerLink]="['/client/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="coffeshopApp.client.home.createLabel">
+            Create new Client
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="clients?.length === 0">
+        <span jhiTranslate="coffeshopApp.client.home.notFound">No clients found</span>
+    </div>
+    <div class="table-responsive" *ngIf="clients?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="coffeshopApp.client.firstName">First Name</span></th>
+            <th><span jhiTranslate="coffeshopApp.client.lastName">Last Name</span></th>
+            <th><span jhiTranslate="coffeshopApp.client.phoneNumber">Phone Number</span></th>
+            <th><span jhiTranslate="coffeshopApp.client.email">Email</span></th>
+            <th><span jhiTranslate="coffeshopApp.client.deliveryAddress">Delivery Address</span></th>
+            <th><span jhiTranslate="coffeshopApp.client.feedback">Feedback</span></th>
+            <th><span jhiTranslate="coffeshopApp.client.order">Order</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let client of clients ;trackBy: trackId">
+                <td><a [routerLink]="['/client', client.id, 'view' ]">{{client.id}}</a></td>
+                <td>{{client.firstName}}</td>
+                <td>{{client.lastName}}</td>
+                <td>{{client.phoneNumber}}</td>
+                <td>{{client.email}}</td>
+                <td>{{client.deliveryAddress}}</td>
+                <td>{{client.feedback}}</td>
+                <td>
+                    <div *ngIf="client.order">
+                        <a [routerLink]="['../order', client.order?.id, 'view' ]" >{{client.order?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/client', client.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/client', client.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'client', { outlets: { popup: client.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "coffeshopApp": {
+    "coffeAmount": {
+      "home": {
+        "title": "Coffe Amounts",
+        "createLabel": "Создать новый Coffe Amount",
+        "createOrEditLabel": "Создать или отредактировать Coffe Amount",
+        "notFound": "No Coffe Amount found"
+      },
+      "created": "Новый Coffe Amount создан с идентификатором {{ param }}",
+      "updated": "Coffe Amount обновлен с идентификатором {{ param }}",
+      "deleted": "Coffe Amount удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Coffe Amount {{ id }}?"
+      },
+      "detail": {
+        "title": "Coffe Amount"
+      },
+      "availableAmount": "Available Amount",
+      "sokdAmount": "Sokd Amount",
+      "coffe": "Coffe",
+      "coffe": "Coffe"
+    }
+  }
+}

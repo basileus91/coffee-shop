@@ -1,0 +1,30 @@
+{
+  "coffeshopApp": {
+    "coffe": {
+      "home": {
+        "title": "Coffes",
+        "createLabel": "Создать новый Coffe",
+        "createOrEditLabel": "Создать или отредактировать Coffe",
+        "notFound": "No Coffe found"
+      },
+      "created": "Новый Coffe создан с идентификатором {{ param }}",
+      "updated": "Coffe обновлен с идентификатором {{ param }}",
+      "deleted": "Coffe удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Coffe {{ id }}?"
+      },
+      "detail": {
+        "title": "Coffe"
+      },
+      "name": "Name",
+      "countryName": "Country Name",
+      "description": "Description",
+      "quantity": "Quantity",
+      "price": "Price",
+      "photo": "Photo",
+      "region": "Region",
+      "coffeAmount": "Coffe Amount",
+      "coffeAmount": "Coffe Amount"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "name": "CoffeAmount",
+    "fields": [
+        {
+            "fieldName": "availableAmount",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "sokdAmount",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "coffe",
+            "otherEntityRelationshipName": "coffeAmount",
+            "javadoc": "A relationship",
+            "relationshipName": "coffe"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "coffe",
+            "otherEntityRelationshipName": "coffeAmount",
+            "relationshipName": "coffe",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200604164210",
+    "entityTableName": "coffe_amount",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

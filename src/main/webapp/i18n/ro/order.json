@@ -1,0 +1,29 @@
+{
+  "coffeshopApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "createLabel": "Creeare o nouă entitate Order",
+        "createOrEditLabel": "Creeare sau editare Order",
+        "notFound": "No Order found"
+      },
+      "created": "A fost creată o nouă entitate Order cu identificatorul {{ param }}",
+      "updated": "Order cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Order cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "commandId": "Command Id",
+      "paymentMethod": "Payment Method",
+      "aboutUs": "About Us",
+      "recommandation": "Recommandation",
+      "socialMedia": "Social Media",
+      "orderDate": "Order Date",
+      "client": "Client",
+      "client": "Client"
+    }
+  }
+}

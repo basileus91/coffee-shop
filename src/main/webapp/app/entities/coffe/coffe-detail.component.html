@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="coffe">
+            <h2><span jhiTranslate="coffeshopApp.coffe.detail.title">Coffe</span> {{coffe.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="coffeshopApp.coffe.name">Name</span></dt>
+                <dd>
+                    <span>{{coffe.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.coffe.countryName">Country Name</span></dt>
+                <dd>
+                    <span>{{coffe.countryName}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.coffe.description">Description</span></dt>
+                <dd>
+                    <span>{{coffe.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.coffe.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{coffe.quantity}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.coffe.price">Price</span></dt>
+                <dd>
+                    <span>{{coffe.price}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.coffe.photo">Photo</span></dt>
+                <dd>
+                    <div *ngIf="coffe.photo">
+                        <a (click)="openFile(coffe.photoContentType, coffe.photo)" jhiTranslate="entity.action.open">open</a>
+                        {{coffe.photoContentType}}, {{byteSize(coffe.photo)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.coffe.region">Region</span></dt>
+                <dd>
+                    <div *ngIf="coffe.region">
+                        <a [routerLink]="['/category', coffe.region?.id, 'view']">{{coffe.region?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.coffe.coffeAmount">Coffe Amount</span></dt>
+                <dd>
+                    <div *ngIf="coffe.coffeAmount">
+                        <a [routerLink]="['/coffe-amount', coffe.coffeAmount?.id, 'view']">{{coffe.coffeAmount?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/coffe', coffe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

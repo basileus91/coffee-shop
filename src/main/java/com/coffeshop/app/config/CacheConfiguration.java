@@ -43,6 +43,15 @@ public class CacheConfiguration {
             createCache(cm, com.coffeshop.app.domain.User.class.getName());
             createCache(cm, com.coffeshop.app.domain.Authority.class.getName());
             createCache(cm, com.coffeshop.app.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.coffeshop.app.domain.Category.class.getName());
+            createCache(cm, com.coffeshop.app.domain.Coffe.class.getName());
+            createCache(cm, com.coffeshop.app.domain.Coffe.class.getName() + ".coffeAmounts");
+            createCache(cm, com.coffeshop.app.domain.Client.class.getName());
+            createCache(cm, com.coffeshop.app.domain.Client.class.getName() + ".orders");
+            createCache(cm, com.coffeshop.app.domain.Order.class.getName());
+            createCache(cm, com.coffeshop.app.domain.Order.class.getName() + ".clients");
+            createCache(cm, com.coffeshop.app.domain.CoffeAmount.class.getName());
+            createCache(cm, com.coffeshop.app.domain.CoffeAmount.class.getName() + ".coffes");
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -10,6 +10,11 @@
         "bankAccount": "ContBancar",
         "label": "Etichetă",
         "operation": "Operație",
+        "category": "Category",
+        "coffe": "Coffe",
+        "client": "Client",
+        "order": "Order",
+        "coffeAmount": "Coffe Amount",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

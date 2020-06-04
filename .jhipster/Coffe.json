@@ -1,0 +1,63 @@
+{
+    "name": "Coffe",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "countryName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "photo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "coffe",
+            "relationshipName": "region",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "coffeAmount",
+            "otherEntityRelationshipName": "coffe",
+            "relationshipName": "coffeAmount"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "coffeAmount",
+            "otherEntityRelationshipName": "coffe",
+            "javadoc": "Another side of the same relationship",
+            "relationshipName": "coffeAmount",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200604164207",
+    "entityTableName": "coffe",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

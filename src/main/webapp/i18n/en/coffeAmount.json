@@ -1,0 +1,25 @@
+{
+  "coffeshopApp": {
+    "coffeAmount": {
+      "home": {
+        "title": "Coffe Amounts",
+        "createLabel": "Create a new Coffe Amount",
+        "createOrEditLabel": "Create or edit a Coffe Amount",
+        "notFound": "No Coffe Amount found"
+      },
+      "created": "A new Coffe Amount is created with identifier {{ param }}",
+      "updated": "A Coffe Amount is updated with identifier {{ param }}",
+      "deleted": "A Coffe Amount is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Coffe Amount {{ id }}?"
+      },
+      "detail": {
+        "title": "Coffe Amount"
+      },
+      "availableAmount": "Available Amount",
+      "sokdAmount": "Sokd Amount",
+      "coffe": "Coffe",
+      "coffe": "Coffe"
+    }
+  }
+}

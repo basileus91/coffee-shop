@@ -1,0 +1,25 @@
+{
+  "coffeshopApp": {
+    "coffeAmount": {
+      "home": {
+        "title": "Coffe Amounts",
+        "createLabel": "Creeare o nouă entitate Coffe Amount",
+        "createOrEditLabel": "Creeare sau editare Coffe Amount",
+        "notFound": "No Coffe Amount found"
+      },
+      "created": "A fost creată o nouă entitate Coffe Amount cu identificatorul {{ param }}",
+      "updated": "Coffe Amount cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Coffe Amount cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Coffe Amount {{ id }}?"
+      },
+      "detail": {
+        "title": "Coffe Amount"
+      },
+      "availableAmount": "Available Amount",
+      "sokdAmount": "Sokd Amount",
+      "coffe": "Coffe",
+      "coffe": "Coffe"
+    }
+  }
+}

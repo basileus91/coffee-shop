@@ -5,7 +5,7 @@ import { JhiLanguageService } from 'ng-jhipster';
 import { SessionStorageService } from 'ngx-webstorage';
 
 import { VERSION } from 'app/app.constants';
-import { JhiLanguageHelper, AccountService, LoginModalService, LoginService } from 'app/core';
+import { JhiLanguageHelper, AccountService, LoginModalService, LoginService, LANGUAGES } from 'app/core';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
 
 @Component({
@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
   swaggerEnabled: boolean;
   modalRef: NgbModalRef;
   version: string;
+  currentLanguage = LANGUAGES[1].imageUrl;
 
   constructor(
     private loginService: LoginService,
@@ -49,6 +50,13 @@ export class NavbarComponent implements OnInit {
   changeLanguage(languageKey: string) {
     this.sessionStorage.store('locale', languageKey);
     this.languageService.changeLanguage(languageKey);
+    if (languageKey === 'en') {
+      this.currentLanguage = LANGUAGES[0].imageUrl;
+    } else if (languageKey === 'ro') {
+      this.currentLanguage = LANGUAGES[1].imageUrl;
+    } else if (languageKey === 'ru') {
+      this.currentLanguage = LANGUAGES[2].imageUrl;
+    }
   }
 
   collapseNavbar() {

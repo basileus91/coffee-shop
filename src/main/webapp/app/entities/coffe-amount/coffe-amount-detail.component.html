@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="coffeAmount">
+            <h2><span jhiTranslate="coffeshopApp.coffeAmount.detail.title">Coffe Amount</span> {{coffeAmount.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="coffeshopApp.coffeAmount.availableAmount">Available Amount</span></dt>
+                <dd>
+                    <span>{{coffeAmount.availableAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.coffeAmount.sokdAmount">Sokd Amount</span></dt>
+                <dd>
+                    <span>{{coffeAmount.sokdAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.coffeAmount.coffe">Coffe</span></dt>
+                <dd>
+                    <div *ngIf="coffeAmount.coffe">
+                        <a [routerLink]="['/coffe', coffeAmount.coffe?.id, 'view']">{{coffeAmount.coffe?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/coffe-amount', coffeAmount.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
