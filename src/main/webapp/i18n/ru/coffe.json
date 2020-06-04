@@ -16,13 +16,13 @@
       "detail": {
         "title": "Coffe"
       },
-      "name": "Name",
-      "countryName": "Country Name",
+      "name": "имя",
+      "countryName": "Название страны",
       "description": "Description",
       "quantity": "Quantity",
       "price": "Price",
       "photo": "Photo",
-      "region": "Region",
+      "region": "Kатегория",
       "coffeAmount": "Coffe Amount",
       "coffeAmount": "Coffe Amount"
     }

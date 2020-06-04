@@ -27,6 +27,10 @@ export class CoffeService {
     return this.http.get<ICoffe>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  getAll(): Observable<HttpResponse<ICoffe[]>> {
+    return this.http.get<ICoffe[]>(`${this.resourceUrl}`, { observe: 'response' });
+  }
+
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http.get<ICoffe[]>(this.resourceUrl, { params: options, observe: 'response' });

@@ -2,6 +2,7 @@ package com.coffeshop.app.web.rest;
 
 import com.coffeshop.app.domain.Coffe;
 import com.coffeshop.app.repository.CoffeRepository;
+import com.coffeshop.app.service.util.ImageResizer;
 import com.coffeshop.app.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -46,11 +47,12 @@ public class CoffeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/coffes")
-    public ResponseEntity<Coffe> createCoffe(@RequestBody Coffe coffe) throws URISyntaxException {
+    public ResponseEntity<Coffe> createCoffe(@RequestBody Coffe coffe) throws Exception {
         log.debug("REST request to save Coffe : {}", coffe);
         if (coffe.getId() != null) {
             throw new BadRequestAlertException("A new coffe cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        coffe.setPhoto(ImageResizer.scale(coffe.getPhoto(),400,400));
         Coffe result = coffeRepository.save(coffe);
         return ResponseEntity.created(new URI("/api/coffes/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -67,11 +69,12 @@ public class CoffeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/coffes")
-    public ResponseEntity<Coffe> updateCoffe(@RequestBody Coffe coffe) throws URISyntaxException {
+    public ResponseEntity<Coffe> updateCoffe(@RequestBody Coffe coffe) throws Exception {
         log.debug("REST request to update Coffe : {}", coffe);
         if (coffe.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
+        coffe.setPhoto(ImageResizer.scale(coffe.getPhoto(),400,400));
         Coffe result = coffeRepository.save(coffe);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, coffe.getId().toString()))

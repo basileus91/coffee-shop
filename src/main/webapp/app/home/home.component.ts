@@ -3,6 +3,8 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginModalService, AccountService, Account } from 'app/core';
+import { CoffeService } from 'app/entities/coffe';
+import { Coffe } from 'app/shared/model/coffe.model';
 
 @Component({
   selector: 'jhi-home',
@@ -12,11 +14,13 @@ import { LoginModalService, AccountService, Account } from 'app/core';
 export class HomeComponent implements OnInit {
   account: Account;
   modalRef: NgbModalRef;
+  coffeList: Coffe[] = [];
 
   constructor(
     private accountService: AccountService,
     private loginModalService: LoginModalService,
-    private eventManager: JhiEventManager
+    private eventManager: JhiEventManager,
+    private coffeService: CoffeService
   ) {}
 
   ngOnInit() {
@@ -24,6 +28,10 @@ export class HomeComponent implements OnInit {
       this.account = account;
     });
     this.registerAuthenticationSuccess();
+    this.coffeService.getAll().subscribe(value => {
+      this.coffeList = value.body;
+      console.log(this.coffeList);
+    });
   }
 
   registerAuthenticationSuccess() {

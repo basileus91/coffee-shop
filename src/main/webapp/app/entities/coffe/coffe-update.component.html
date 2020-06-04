@@ -54,10 +54,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="coffeshopApp.coffe.region" for="field_region">Region</label>
+                    <label class="form-control-label" jhiTranslate="coffeshopApp.coffe.region" for="field_region">Category</label>
                     <select class="form-control" id="field_region" name="region" formControlName="region">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="categoryOption.id === editForm.get('region').value?.id ? editForm.get('region').value : categoryOption" *ngFor="let categoryOption of regions; trackBy: trackCategoryById">{{categoryOption.id}}</option>
+                        <option [ngValue]="categoryOption.id === editForm.get('region').value?.id ? editForm.get('region').value : categoryOption" *ngFor="let categoryOption of regions; trackBy: trackCategoryById">{{categoryOption.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">

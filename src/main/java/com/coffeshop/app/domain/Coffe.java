@@ -48,7 +48,7 @@ public class Coffe implements Serializable {
     private String photoContentType;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JoinColumn()
     private Category region;
 
     @OneToMany(mappedBy = "coffe")

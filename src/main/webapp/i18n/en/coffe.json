@@ -22,7 +22,7 @@
       "quantity": "Quantity",
       "price": "Price",
       "photo": "Photo",
-      "region": "Region",
+      "region": "Category",
       "coffeAmount": "Coffe Amount",
       "coffeAmount": "Coffe Amount"
     }

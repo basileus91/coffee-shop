@@ -7,7 +7,7 @@
         Added the constraints for entity Coffe.
     -->
     <changeSet id="20200604164207-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="region_id"
                                  baseTableName="coffe"
                                  constraintName="fk_coffe_region_id"
