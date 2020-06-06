@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -11,6 +11,7 @@ import { IOrder, Order } from 'app/shared/model/order.model';
 import { OrderService } from './order.service';
 import { IClient } from 'app/shared/model/client.model';
 import { ClientService } from 'app/entities/client';
+import { OrderStatus } from 'app/shared/enumerations/status.model';
 
 @Component({
   selector: 'jhi-order-update',
@@ -29,7 +30,8 @@ export class OrderUpdateComponent implements OnInit {
     recommandation: [],
     socialMedia: [],
     orderDate: [],
-    client: []
+    client: [],
+    status: []
   });
 
   constructor(
@@ -63,7 +65,8 @@ export class OrderUpdateComponent implements OnInit {
       recommandation: order.recommandation,
       socialMedia: order.socialMedia,
       orderDate: order.orderDate != null ? order.orderDate.format(DATE_TIME_FORMAT) : null,
-      client: order.client
+      client: order.client,
+      status: order.status
     });
   }
 
@@ -74,6 +77,11 @@ export class OrderUpdateComponent implements OnInit {
   save() {
     this.isSaving = true;
     const order = this.createFromForm();
+    if (order.status === 'New') {
+      order.status = OrderStatus.NEW;
+    } else {
+      order.status = OrderStatus.COMPLETED;
+    }
     if (order.id !== undefined) {
       this.subscribeToSaveResponse(this.orderService.update(order));
     } else {
@@ -92,7 +100,8 @@ export class OrderUpdateComponent implements OnInit {
       socialMedia: this.editForm.get(['socialMedia']).value,
       orderDate:
         this.editForm.get(['orderDate']).value != null ? moment(this.editForm.get(['orderDate']).value, DATE_TIME_FORMAT) : undefined,
-      client: this.editForm.get(['client']).value
+      client: this.editForm.get(['client']).value,
+      status: this.editForm.get(['status']).value
     };
   }
 

@@ -3,6 +3,7 @@ package com.coffeshop.app.web.rest;
 import com.coffeshop.app.CoffeshopApp;
 import com.coffeshop.app.domain.Client;
 import com.coffeshop.app.repository.ClientRepository;
+import com.coffeshop.app.repository.OrderRepository;
 import com.coffeshop.app.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -76,7 +77,8 @@ public class ClientResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ClientResource clientResource = new ClientResource(clientRepository);
+        OrderRepository orderRepository = null;
+        final ClientResource clientResource = new ClientResource(clientRepository, orderRepository);
         this.restClientMockMvc = MockMvcBuilders.standaloneSetup(clientResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -184,7 +186,7 @@ public class ClientResourceIT {
             .andExpect(jsonPath("$.[*].deliveryAddress").value(hasItem(DEFAULT_DELIVERY_ADDRESS.toString())))
             .andExpect(jsonPath("$.[*].feedback").value(hasItem(DEFAULT_FEEDBACK.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getClient() throws Exception {

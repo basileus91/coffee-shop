@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingCardService } from 'app/home/shopping-card.service';
 
 @Component({
   selector: 'jhi-finished-order',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./finished-order.component.scss']
 })
 export class FinishedOrderComponent implements OnInit {
-  constructor() {}
+  constructor(private shoppingCardService: ShoppingCardService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.shoppingCardService.removeAllFromCard();
+  }
 }

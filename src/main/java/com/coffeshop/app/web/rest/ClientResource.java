@@ -1,13 +1,18 @@
 package com.coffeshop.app.web.rest;
 
 import com.coffeshop.app.domain.Client;
+import com.coffeshop.app.domain.Order;
+import com.coffeshop.app.domain.OrderStatus;
 import com.coffeshop.app.repository.ClientRepository;
+import com.coffeshop.app.repository.OrderRepository;
+import com.coffeshop.app.service.util.CodeGeneratorUtils;
 import com.coffeshop.app.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,9 +39,11 @@ public class ClientResource {
     private String applicationName;
 
     private final ClientRepository clientRepository;
+    private final OrderRepository orderRepository;
 
-    public ClientResource(ClientRepository clientRepository) {
+    public ClientResource(ClientRepository clientRepository, OrderRepository orderRepository) {
         this.clientRepository = clientRepository;
+        this.orderRepository = orderRepository;
     }
 
     /**
@@ -52,6 +60,15 @@ public class ClientResource {
             throw new BadRequestAlertException("A new client cannot already have an ID", ENTITY_NAME, "idexists");
         }
         Client result = clientRepository.save(client);
+        Order order = new Order();
+        order.setStatus(OrderStatus.NEW);
+        order.setClient(result);
+        order.setCommandId(CodeGeneratorUtils.regCodeGenerator("CE"));
+        order.setPaymentMethod(true);
+        order.setAboutUs("N/A");
+        order.setOrderDate(Instant.now());
+        orderRepository.save(order);
+
         return ResponseEntity.created(new URI("/api/clients/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);

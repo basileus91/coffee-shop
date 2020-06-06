@@ -5,7 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Client, IClient } from 'app/shared/model/client.model';
 import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
-import { IOrder } from 'app/shared/model/order.model';
+import { IOrder, Order } from 'app/shared/model/order.model';
 import { JhiAlertService } from 'ng-jhipster';
 import { ClientService } from 'app/entities/client';
 import { OrderService } from 'app/entities/order';
@@ -93,6 +93,7 @@ export class CheckoutComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
+    this.shoppingCardService.shoppingCartChanges.next([]);
     this.router.navigate(['/cart/checkout/completed']);
   }
 
@@ -108,7 +109,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   disableFields(isDisable: boolean) {
-    console.log(isDisable);
     if (isDisable) {
       this.editForm.controls['lastName'].disable();
       this.editForm.controls['email'].disable();
