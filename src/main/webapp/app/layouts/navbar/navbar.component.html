@@ -11,11 +11,16 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
-                    <i class="fa fa-shopping-cart"></i>
                     <span>
                         <fa-icon icon="home"></fa-icon>
                         <span jhiTranslate="global.menu.home">Home</span>
                     </span>
+                </a>
+            </li>
+<!--            Shopping Cart-->
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/cart" (click)="collapseNavbar()">
+                    <jhi-shopping-card [products]="amountInCart"></jhi-shopping-card>
                 </a>
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->

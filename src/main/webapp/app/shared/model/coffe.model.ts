@@ -13,6 +13,7 @@ export interface ICoffe {
   region?: ICategory;
   coffeAmounts?: ICoffeAmount[];
   coffeAmount?: ICoffeAmount;
+  orderedAmount?: number;
 }
 
 export class Coffe implements ICoffe {
@@ -27,6 +28,9 @@ export class Coffe implements ICoffe {
     public photo?: any,
     public region?: ICategory,
     public coffeAmounts?: ICoffeAmount[],
-    public coffeAmount?: ICoffeAmount
-  ) {}
+    public coffeAmount?: ICoffeAmount,
+    public orderedAmount?: number
+  ) {
+    this.orderedAmount = 0;
+  }
 }

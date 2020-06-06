@@ -25,5 +25,6 @@
     <include file="config/liquibase/changelog/20200604164209_added_entity_constraints_Order.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200604164210_added_entity_constraints_CoffeAmount.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200604232310_added_status_column_Order.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200606120410_added_ordered_amount_Coffe.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

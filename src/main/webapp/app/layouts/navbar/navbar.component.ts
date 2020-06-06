@@ -7,6 +7,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 import { VERSION } from 'app/app.constants';
 import { JhiLanguageHelper, AccountService, LoginModalService, LoginService, LANGUAGES } from 'app/core';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { ShoppingCardService } from 'app/home/shopping-card.service';
 
 @Component({
   selector: 'jhi-navbar',
@@ -21,6 +22,7 @@ export class NavbarComponent implements OnInit {
   modalRef: NgbModalRef;
   version: string;
   currentLanguage = LANGUAGES[1].imageUrl;
+  amountInCart = 0;
 
   constructor(
     private loginService: LoginService,
@@ -30,7 +32,8 @@ export class NavbarComponent implements OnInit {
     private accountService: AccountService,
     private loginModalService: LoginModalService,
     private profileService: ProfileService,
-    private router: Router
+    private router: Router,
+    private shoppingCardService: ShoppingCardService
   ) {
     this.version = VERSION ? 'v' + VERSION : '';
     this.isNavbarCollapsed = true;
@@ -44,6 +47,10 @@ export class NavbarComponent implements OnInit {
     this.profileService.getProfileInfo().then(profileInfo => {
       this.inProduction = profileInfo.inProduction;
       this.swaggerEnabled = profileInfo.swaggerEnabled;
+    });
+    this.shoppingCardService.shoppingCartChanges.subscribe(value => {
+      this.amountInCart = value.length;
+      console.log(value);
     });
   }
 

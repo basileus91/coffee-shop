@@ -37,6 +37,9 @@ public class Coffe implements Serializable {
     @Column(name = "quantity")
     private Long quantity;
 
+    @Column(name = "ordered_amount")
+    private Long orderedAmount = 0L;
+
     @Column(name = "price")
     private Double price;
 
@@ -122,6 +125,19 @@ public class Coffe implements Serializable {
 
     public void setQuantity(Long quantity) {
         this.quantity = quantity;
+    }
+
+    public Long getOrderedAmount() {
+        return orderedAmount;
+    }
+
+    public Coffe orderedAmount(Long orderedAmount) {
+        this.orderedAmount = orderedAmount;
+        return this;
+    }
+
+    public void setOrderedAmount(Long orderedAmount) {
+        this.orderedAmount = orderedAmount;
     }
 
     public Double getPrice() {
@@ -242,6 +258,7 @@ public class Coffe implements Serializable {
             ", price=" + getPrice() +
             ", photo='" + getPhoto() + "'" +
             ", photoContentType='" + getPhotoContentType() + "'" +
+            ", orderedAmount='" + getOrderedAmount() + "'" +
             "}";
     }
 }

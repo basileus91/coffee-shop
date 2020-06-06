@@ -1,19 +1,21 @@
 {
   "home": {
-    "title": "Welcome, Java Hipster!",
+    "title": "Welcome, to Coffee Espresso!",
+    "titleCart": "Cart",
+    "titleCheckout": "Checkout",
     "subtitle": "This is your homepage",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."
     },
-    "question": "If you have any question on JHipster:",
+    "question": "If you have any question on Coffee Espresso:",
     "link": {
-      "homepage": "JHipster homepage",
-      "stackoverflow": "JHipster on Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster public chat room",
+      "homepage": "Coffee Espresso homepage",
+      "stackoverflow": "Coffee Espresso on Stack Overflow",
+      "bugtracker": "Coffee Espresso bug tracker",
+      "chat": "Coffee Espresso public chat room",
       "follow": "follow @java_hipster on Twitter"
     },
-    "like": "If you like JHipster, don't forget to give us a star on",
+    "like": "If you like Coffee Espresso, don't forget to give us a star on",
     "github": "GitHub"
   }
 }

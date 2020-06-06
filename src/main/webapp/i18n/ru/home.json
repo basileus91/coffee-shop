@@ -1,19 +1,21 @@
 {
   "home": {
-    "title": "Добро пожаловать, Java Hipster!",
+    "title": "Добро пожаловать, Cafea espresso!",
+    "titleCart": "Сумка для покупок",
+    "titleCheckout": "Проверять, выписываться",
     "subtitle": "Это ваша домашняя страница",
     "logged": {
       "message": "Вы вошли как пользователь \"{{username}}\"."
     },
-    "question": "Если у Вас возникли вопросы по JHipster:",
+    "question": "Если у Вас возникли вопросы по Cafea espresso:",
     "link": {
-      "homepage": "JHipster домашняя страница",
-      "stackoverflow": "JHipster на Stack Overflow",
-      "bugtracker": "JHipster баг трекер",
-      "chat": "JHipster public chat room",
+      "homepage": "Cafea espresso домашняя страница",
+      "stackoverflow": "Cafea espresso на Stack Overflow",
+      "bugtracker": "Cafea espresso баг трекер",
+      "chat": "Cafea espresso public chat room",
       "follow": "пользователь @java_hipster в Twitter"
     },
-    "like": "Если вам нравится JHipster, не забудьте дать нам звёздочку на",
+    "like": "Если вам нравится Cafea espresso, не забудьте дать нам звёздочку на",
     "github": "GitHub"
   }
 }

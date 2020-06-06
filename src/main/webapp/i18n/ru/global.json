@@ -1,5 +1,11 @@
 {
   "global": {
+    "shopping-cart": {
+      "cart": "Корзина"
+    },
+    "cart": {
+      "cart": "Сумка для покупок"
+    },
     "title": "Кофе эспрессо",
     "browsehappy": "Ваш браузер <strong>устарел</strong>. Пожалуйста <a href=\"http://browsehappy.com/?locale=ru\">обновите ваш браузер</a>.",
     "menu": {

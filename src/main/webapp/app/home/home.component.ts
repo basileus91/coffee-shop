@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginModalService, AccountService, Account } from 'app/core';
 import { CoffeService } from 'app/entities/coffe';
-import { Coffe } from 'app/shared/model/coffe.model';
+import { Coffe, ICoffe } from 'app/shared/model/coffe.model';
 import { NgForm } from '@angular/forms';
+import { ShoppingCardService } from 'app/home/shopping-card.service';
 
 @Component({
   selector: 'jhi-home',
@@ -16,12 +17,15 @@ export class HomeComponent implements OnInit {
   account: Account;
   modalRef: NgbModalRef;
   coffeList: Coffe[] = [];
+  inputError: boolean;
+  @ViewChild('amount', { static: false }) amount: ElementRef;
 
   constructor(
     private accountService: AccountService,
     private loginModalService: LoginModalService,
     private eventManager: JhiEventManager,
-    private coffeService: CoffeService
+    private coffeService: CoffeService,
+    private shoppingCardService: ShoppingCardService
   ) {}
 
   ngOnInit() {
@@ -33,6 +37,7 @@ export class HomeComponent implements OnInit {
       this.coffeList = value.body;
       console.log(this.coffeList);
     });
+    this.inputError = false;
   }
 
   registerAuthenticationSuccess() {
@@ -51,7 +56,12 @@ export class HomeComponent implements OnInit {
     this.modalRef = this.loginModalService.open();
   }
 
-  onSubmit(form: NgForm) {
-    console.log(form);
+  onSubmit(form: NgForm, coffe: ICoffe) {
+    if (form.value.amount < 1) {
+      this.inputError = true;
+    } else {
+      this.shoppingCardService.addToCart(form.value.amount, coffe);
+      form.reset();
+    }
   }
 }

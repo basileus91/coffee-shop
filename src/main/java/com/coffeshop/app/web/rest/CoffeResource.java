@@ -52,7 +52,7 @@ public class CoffeResource {
         if (coffe.getId() != null) {
             throw new BadRequestAlertException("A new coffe cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        coffe.setPhoto(ImageResizer.scale(coffe.getPhoto(),400,400));
+        coffe.setPhoto(ImageResizer.scale(coffe.getPhoto(),300,300));
         Coffe result = coffeRepository.save(coffe);
         return ResponseEntity.created(new URI("/api/coffes/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))

@@ -1,19 +1,21 @@
 {
   "home": {
-    "title": "Bun venit, Java Hipster!",
+    "title": "Bun venit, la Cafea espresso!",
+    "titleCart": "Coș",
+    "titleCheckout": "Finalizare comandă",
     "subtitle": "Aceasta este pagina ta de start",
     "logged": {
       "message": "Ești autentificat cu numele de utilizator \"{{username}}\"."
     },
-    "question": "Dacă ai orice întrebări în legatură cu JHipster:",
+    "question": "Dacă ai orice întrebări în legatură cu Cafea espresso:",
     "link": {
-      "homepage": "Pagina JHipster",
-      "stackoverflow": "JHipster pe Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "Camera de chat publică pentru JHipster",
+      "homepage": "Pagina Cafea espresso",
+      "stackoverflow": "Cafea espresso pe Stack Overflow",
+      "bugtracker": "Cafea espresso bug tracker",
+      "chat": "Camera de chat publică pentru Cafea espresso",
       "follow": "Contactează @java_hipster pe Twitter"
     },
-    "like": "Dacă iți place JHipster nu uita să ne dai o stea pe",
+    "like": "Dacă iți place Cafea espresso nu uita să ne dai o stea pe",
     "github": "GitHub"
   }
 }

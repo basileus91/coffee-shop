@@ -1,0 +1,45 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="shopping-cart">
+    <!-- Title -->
+    <div class="title" jhiTranslate="global.cart.cart">
+        Pungă de cumpărături
+    </div>
+
+    <!-- Product #1 -->
+    <div *ngFor="let coffee of coffeeList" class="item">
+        <div class="buttons">
+            <i (click)="removeFromList(coffee.id)" class="fa fa-remove" style="font-size: 20px;color: red; cursor: pointer"></i>
+<!--            <span class="delete-btn"></span>-->
+<!--            <span class="like-btn"></span>-->
+        </div>
+        <div class="image">
+            <img src="data:image/png;base64,{{coffee?.photo}}" width="150px" height="150px" alt="" />
+        </div>
+
+        <div class="description">
+            <span style="font-size: larger;font-weight: bold;">{{ coffee?.name }}</span>
+            <span>{{ coffee?.description }}</span>
+            <span>{{ coffee?.countryName }}</span>
+        </div>
+
+        <div class="quantity">
+            <button class="plus-btn" type="button" name="button" (click)="addAmount(coffee)">
+                <i class="fa fa-plus"></i>
+            </button>
+            <span>{{coffee?.orderedAmount}}</span>
+            <button class="minus-btn" type="button" name="button" (click)="removeAmount(coffee)">
+                <i class="fa fa-minus"></i>
+            </button>
+        </div>
+
+        <div class="total-price">{{ coffee?.price * coffee?.orderedAmount }} Lei</div>
+    </div>
+    <div *ngIf="coffeeList.length>0">
+        <span style="float: right; padding-right: 80px;">{{ totalAmountPrice }} Lei</span>
+    </div>
+    <div *ngIf="coffeeList.length>0">
+        <button (click)="orderCheckout()" style="float: right; margin-bottom: 10px; margin-right: 10px; margin-top: 10px;">Finalizează comanda</button>
+    </div>
+</div>
