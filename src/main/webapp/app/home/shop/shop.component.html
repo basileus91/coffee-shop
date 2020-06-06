@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let coffe of coffeList" class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <div class="card-deck">
+                <div class="card" style="width: 18rem;" >
+                    <img src="data:image/png;base64,{{coffe.photo}}" class="card-img-top" alt="image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{coffe?.name}} {{coffe?.price}} Lei</h5>
+                        <p class="card-text text-wrapper" [title]="coffe?.description">{{coffe?.description}}</p>
+                        <form style="padding-left: 5%;" #f="ngForm" (ngSubmit)="onSubmit(f,coffe)">
+                            <div class="row">
+                                <input min="1" [disabled]="coffe.quantity<1" type="number" placeholder="Introduceți în coș" #amount ngModel name="amount">
+                                <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Adăuga</button>
+                            </div>
+                        </form>
+                        <div *ngIf="coffe.quantity<1" class="alert-danger">Stocul este gol</div>
+                        <!--                        <div *ngIf="inputError && coffe"class="alert-danger">Valoarea minimă de adăugare este o unitate</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

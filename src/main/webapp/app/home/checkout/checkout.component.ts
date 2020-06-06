@@ -94,7 +94,7 @@ export class CheckoutComponent implements OnInit {
   protected onSaveSuccess() {
     this.isSaving = false;
     this.shoppingCardService.shoppingCartChanges.next([]);
-    this.router.navigate(['/cart/checkout/completed']);
+    this.router.navigate(['/shop/cart/checkout/completed']);
   }
 
   protected onSaveError() {

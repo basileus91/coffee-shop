@@ -5,6 +5,7 @@ import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 import { CartComponent } from 'app/home/cart/cart.component';
 import { CheckoutComponent } from 'app/home/checkout/checkout.component';
 import { FinishedOrderComponent } from 'app/home/finished-order/finished-order.component';
+import { ShopComponent } from 'app/home/shop/shop.component';
 
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
@@ -17,7 +18,15 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           loadChildren: './admin/admin.module#CoffeshopAdminModule'
         },
         {
-          path: 'cart',
+          path: 'shop',
+          component: ShopComponent,
+          data: {
+            authorities: [],
+            pageTitle: 'home.titleCart'
+          }
+        },
+        {
+          path: 'shop/cart',
           component: CartComponent,
           data: {
             authorities: [],
@@ -25,7 +34,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           }
         },
         {
-          path: 'cart/checkout',
+          path: 'shop/cart/checkout',
           component: CheckoutComponent,
           data: {
             authorities: [],
@@ -33,7 +42,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           }
         },
         {
-          path: 'cart/checkout/completed',
+          path: 'shop/cart/checkout/completed',
           component: FinishedOrderComponent,
           data: {
             authorities: [],

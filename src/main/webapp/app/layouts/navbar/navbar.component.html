@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar navbar-dark navbar-expand-md bg-dark">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
 <!--        <span class="logo-img"></span>-->
@@ -17,9 +18,18 @@
                     </span>
                 </a>
             </li>
+
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/shop" (click)="collapseNavbar()">
+                    <span>
+                        <i class="fa fa-shopping-basket" ></i>
+                        <span>Magazin</span>
+                    </span>
+                </a>
+            </li>
 <!--            Shopping Cart-->
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/cart" (click)="collapseNavbar()">
+                <a class="nav-link" routerLink="/shop/cart" (click)="collapseNavbar()">
                     <jhi-shopping-card [products]="amountInCart"></jhi-shopping-card>
                 </a>
             </li>

@@ -8,10 +8,11 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FinishedOrderComponent } from './finished-order/finished-order.component';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   imports: [CoffeshopSharedModule, RouterModule.forChild([HOME_ROUTE]), FormsModule, ReactiveFormsModule],
-  declarations: [HomeComponent, ShoppingCardComponent, CartComponent, CheckoutComponent, FinishedOrderComponent],
+  declarations: [HomeComponent, ShoppingCardComponent, CartComponent, CheckoutComponent, FinishedOrderComponent, ShopComponent],
   exports: [ShoppingCardComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
