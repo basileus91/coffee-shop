@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 import { IClient } from 'app/shared/model/client.model';
+import { OrderStatus } from 'app/shared/enumerations/status.model';
 
 export interface IOrder {
   id?: number;

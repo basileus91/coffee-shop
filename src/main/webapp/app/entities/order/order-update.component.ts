@@ -77,7 +77,7 @@ export class OrderUpdateComponent implements OnInit {
   save() {
     this.isSaving = true;
     const order = this.createFromForm();
-    if (order.status === 'New') {
+    if (order.status === OrderStatus.NEW) {
       order.status = OrderStatus.NEW;
     } else {
       order.status = OrderStatus.COMPLETED;
