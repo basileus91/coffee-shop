@@ -1,10 +1,12 @@
 package com.coffeshop.app.service;
 
+import com.coffeshop.app.domain.OrderedCoffe;
 import com.coffeshop.app.domain.User;
 
 import io.github.jhipster.config.JHipsterProperties;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Locale;
 import javax.mail.internet.MimeMessage;
 
@@ -85,6 +87,18 @@ public class MailService {
     }
 
     @Async
+    public void sendOrderEmail(List<OrderedCoffe> orderedCoffes, String templateName, String titleKey) {
+        Locale locale = Locale.forLanguageTag("ro");
+        Context context = new Context(locale);
+//        context.setVariable(USER, user);
+        context.setVariable("orders", orderedCoffes);
+        context.setVariable(BASE_URL, jHipsterProperties.getMail().getBaseUrl());
+        String content = templateEngine.process(templateName, context);
+        String subject = messageSource.getMessage(titleKey, null, locale);
+        sendEmail("vasiafurdui@yahoo.com", subject, content, false, true);
+    }
+
+    @Async
     public void sendActivationEmail(User user) {
         log.debug("Sending activation email to '{}'", user.getEmail());
         sendEmailFromTemplate(user, "mail/activationEmail", "email.activation.title");
@@ -100,5 +114,12 @@ public class MailService {
     public void sendPasswordResetMail(User user) {
         log.debug("Sending password reset email to '{}'", user.getEmail());
         sendEmailFromTemplate(user, "mail/passwordResetEmail", "email.reset.title");
+    }
+
+    @Async
+    public void sendOrderEmail(List<OrderedCoffe> orderedCoffes) {
+        log.debug("Sending creation email to '{}'", orderedCoffes);
+        System.out.println(orderedCoffes);
+        sendOrderEmail(orderedCoffes,"mail/orderEmail", "email.order.title");
     }
 }

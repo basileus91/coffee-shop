@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderedCoffe">
+            <h2><span jhiTranslate="coffeshopApp.orderedCoffe.detail.title">Ordered Coffe</span> {{orderedCoffe.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="coffeshopApp.orderedCoffe.coffe">Coffe</span></dt>
+                <dd>
+                    <span>{{orderedCoffe.coffe}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.orderedCoffe.client">Client</span></dt>
+                <dd>
+                    <span>{{orderedCoffe.client}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.orderedCoffe.orderId">Order Id</span></dt>
+                <dd>
+                    <span>{{orderedCoffe.orderId}}</span>
+                </dd>
+                <dt><span jhiTranslate="coffeshopApp.orderedCoffe.amount">Amount</span></dt>
+                <dd>
+                    <span>{{orderedCoffe.amount}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ordered-coffe', orderedCoffe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

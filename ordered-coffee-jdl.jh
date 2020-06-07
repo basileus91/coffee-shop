@@ -1,0 +1,8 @@
+
+entity OrderedCoffe {
+	coffe String
+    client String
+    orderId String
+    amount String
+}
+

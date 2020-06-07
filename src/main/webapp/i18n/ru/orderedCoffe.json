@@ -1,0 +1,25 @@
+{
+  "coffeshopApp": {
+    "orderedCoffe": {
+      "home": {
+        "title": "Ordered Coffes",
+        "createLabel": "Создать новый Ordered Coffe",
+        "createOrEditLabel": "Создать или отредактировать Ordered Coffe",
+        "notFound": "No Ordered Coffe found"
+      },
+      "created": "Новый Ordered Coffe создан с идентификатором {{ param }}",
+      "updated": "Ordered Coffe обновлен с идентификатором {{ param }}",
+      "deleted": "Ordered Coffe удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Ordered Coffe {{ id }}?"
+      },
+      "detail": {
+        "title": "Ordered Coffe"
+      },
+      "coffe": "Coffe",
+      "client": "Client",
+      "orderId": "Order Id",
+      "amount": "Amount"
+    }
+  }
+}

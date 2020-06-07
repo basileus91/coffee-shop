@@ -1,0 +1,31 @@
+{
+    "name": "OrderedCoffe",
+    "fields": [
+        {
+            "fieldName": "coffe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "client",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orderId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200607171459",
+    "entityTableName": "ordered_coffe",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

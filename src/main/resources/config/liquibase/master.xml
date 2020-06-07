@@ -19,6 +19,7 @@
     <include file="config/liquibase/changelog/20200604164208_added_entity_Client.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200604164209_added_entity_Order.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200604164210_added_entity_CoffeAmount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200607171459_added_entity_OrderedCoffe.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200604164207_added_entity_constraints_Coffe.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200604164208_added_entity_constraints_Client.xml" relativeToChangelogFile="false"/>

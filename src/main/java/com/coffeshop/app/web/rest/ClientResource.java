@@ -59,15 +59,18 @@ public class ClientResource {
         if (client.getId() != null) {
             throw new BadRequestAlertException("A new client cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Client result = clientRepository.save(client);
+
         Order order = new Order();
         order.setStatus(OrderStatus.NEW);
-        order.setClient(result);
+//        order.setClient(new Client());
         order.setCommandId(CodeGeneratorUtils.regCodeGenerator("CE"));
         order.setPaymentMethod(true);
         order.setAboutUs("N/A");
         order.setOrderDate(Instant.now());
-        orderRepository.save(order);
+        Order orderResult = orderRepository.save(order);
+
+        client.setOrder(orderResult);
+        Client result = clientRepository.save(client);
 
         return ResponseEntity.created(new URI("/api/clients/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))

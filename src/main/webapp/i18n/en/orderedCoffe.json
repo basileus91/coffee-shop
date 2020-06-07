@@ -1,0 +1,25 @@
+{
+  "coffeshopApp": {
+    "orderedCoffe": {
+      "home": {
+        "title": "Ordered Coffes",
+        "createLabel": "Create a new Ordered Coffe",
+        "createOrEditLabel": "Create or edit a Ordered Coffe",
+        "notFound": "No Ordered Coffe found"
+      },
+      "created": "A new Ordered Coffe is created with identifier {{ param }}",
+      "updated": "A Ordered Coffe is updated with identifier {{ param }}",
+      "deleted": "A Ordered Coffe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ordered Coffe {{ id }}?"
+      },
+      "detail": {
+        "title": "Ordered Coffe"
+      },
+      "coffe": "Coffe",
+      "client": "Client",
+      "orderId": "Order Id",
+      "amount": "Amount"
+    }
+  }
+}

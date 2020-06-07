@@ -53,10 +53,21 @@ spring:
   liquibase:
     contexts: prod
   mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+    #    host: localhost
+    #    port: 25
+    #    username:
+    #    password:
+    host: smtp.gmail.com
+    port: 587
+    username: viorel.banaga.coffee.shop@gmail.com
+    password: CoffeeShop2020!
+    properties.mail.smtp:
+      auth: true
+      connectiontimeout: 5000
+      timeout: 5000
+      writetimeout: 5000
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
   thymeleaf:
     cache: true
 

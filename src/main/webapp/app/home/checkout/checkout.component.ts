@@ -10,6 +10,8 @@ import { JhiAlertService } from 'ng-jhipster';
 import { ClientService } from 'app/entities/client';
 import { OrderService } from 'app/entities/order';
 import { ActivatedRoute, Router } from '@angular/router';
+import { OrderedCoffeService } from 'app/entities/ordered-coffe';
+import { OrderedCoffe } from 'app/shared/model/ordered-coffe.model';
 
 @Component({
   selector: 'jhi-checkout',
@@ -41,7 +43,8 @@ export class CheckoutComponent implements OnInit {
     protected clientService: ClientService,
     protected orderService: OrderService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private orderedCoffeeService: OrderedCoffeService
   ) {}
 
   ngOnInit() {
@@ -88,13 +91,27 @@ export class CheckoutComponent implements OnInit {
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IClient>>) {
-    result.subscribe(() => this.onSaveSuccess(), () => this.onSaveError());
+    result.subscribe(
+      result => {
+        this.onSaveSuccess(result);
+      },
+      () => this.onSaveError()
+    );
   }
 
-  protected onSaveSuccess() {
+  protected onSaveSuccess(result) {
+    console.log(result);
+    this.coffeeList.forEach((value: ICoffe) => {
+      const orderedCoffee = new OrderedCoffe();
+      orderedCoffee.coffe = value.name;
+      orderedCoffee.amount = value.orderedAmount.toString();
+      orderedCoffee.orderId = result.body.order.commandId;
+      orderedCoffee.client = result.body.firstName + ' ' + result.body.phoneNumber;
+      this.orderedCoffeeService.create(orderedCoffee).subscribe();
+    });
     this.isSaving = false;
     this.shoppingCardService.shoppingCartChanges.next([]);
-    this.router.navigate(['/shop/cart/checkout/completed']);
+    this.router.navigate(['/shop/cart/checkout/completed'], { queryParams: { order: result.body.order.commandId } });
   }
 
   protected onSaveError() {

@@ -52,6 +52,7 @@ public class CacheConfiguration {
             createCache(cm, com.coffeshop.app.domain.Order.class.getName() + ".clients");
             createCache(cm, com.coffeshop.app.domain.CoffeAmount.class.getName());
             createCache(cm, com.coffeshop.app.domain.CoffeAmount.class.getName() + ".coffes");
+            createCache(cm, com.coffeshop.app.domain.OrderedCoffe.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

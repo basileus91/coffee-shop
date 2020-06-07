@@ -28,8 +28,8 @@ public class CoffeAmount implements Serializable {
     @Column(name = "available_amount")
     private Long availableAmount;
 
-    @Column(name = "sokd_amount")
-    private Long sokdAmount;
+    @Column(name = "sold_amount")
+    private Long soldAmount;
 
     /**
      * A relationship
@@ -65,17 +65,17 @@ public class CoffeAmount implements Serializable {
         this.availableAmount = availableAmount;
     }
 
-    public Long getSokdAmount() {
-        return sokdAmount;
+    public Long getSoldAmount() {
+        return soldAmount;
     }
 
     public CoffeAmount sokdAmount(Long sokdAmount) {
-        this.sokdAmount = sokdAmount;
+        this.soldAmount = sokdAmount;
         return this;
     }
 
-    public void setSokdAmount(Long sokdAmount) {
-        this.sokdAmount = sokdAmount;
+    public void setSoldAmount(Long sokdAmount) {
+        this.soldAmount = sokdAmount;
     }
 
     public Set<Coffe> getCoffes() {
@@ -138,7 +138,7 @@ public class CoffeAmount implements Serializable {
         return "CoffeAmount{" +
             "id=" + getId() +
             ", availableAmount=" + getAvailableAmount() +
-            ", sokdAmount=" + getSokdAmount() +
+            ", sokdAmount=" + getSoldAmount() +
             "}";
     }
 }

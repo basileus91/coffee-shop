@@ -23,6 +23,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'coffe-amount',
         loadChildren: './coffe-amount/coffe-amount.module#CoffeshopCoffeAmountModule'
+      },
+      {
+        path: 'ordered-coffe',
+        loadChildren: './ordered-coffe/ordered-coffe.module#CoffeshopOrderedCoffeModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

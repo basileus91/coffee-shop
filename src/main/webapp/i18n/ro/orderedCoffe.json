@@ -1,0 +1,25 @@
+{
+  "coffeshopApp": {
+    "orderedCoffe": {
+      "home": {
+        "title": "Ordered Coffes",
+        "createLabel": "Creeare o nouă entitate Ordered Coffe",
+        "createOrEditLabel": "Creeare sau editare Ordered Coffe",
+        "notFound": "No Ordered Coffe found"
+      },
+      "created": "A fost creată o nouă entitate Ordered Coffe cu identificatorul {{ param }}",
+      "updated": "Ordered Coffe cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Ordered Coffe cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Ordered Coffe {{ id }}?"
+      },
+      "detail": {
+        "title": "Ordered Coffe"
+      },
+      "coffe": "Coffe",
+      "client": "Client",
+      "orderId": "Order Id",
+      "amount": "Amount"
+    }
+  }
+}

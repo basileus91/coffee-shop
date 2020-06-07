@@ -19,7 +19,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="sokd_amount" type="bigint">
+            <column name="sold_amount" type="bigint">
                 <constraints nullable="true" />
             </column>
 

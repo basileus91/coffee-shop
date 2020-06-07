@@ -119,7 +119,7 @@ public class CoffeAmountResourceIT {
         assertThat(coffeAmountList).hasSize(databaseSizeBeforeCreate + 1);
         CoffeAmount testCoffeAmount = coffeAmountList.get(coffeAmountList.size() - 1);
         assertThat(testCoffeAmount.getAvailableAmount()).isEqualTo(DEFAULT_AVAILABLE_AMOUNT);
-        assertThat(testCoffeAmount.getSokdAmount()).isEqualTo(DEFAULT_SOKD_AMOUNT);
+        assertThat(testCoffeAmount.getSoldAmount()).isEqualTo(DEFAULT_SOKD_AMOUNT);
     }
 
     @Test
@@ -156,7 +156,7 @@ public class CoffeAmountResourceIT {
             .andExpect(jsonPath("$.[*].availableAmount").value(hasItem(DEFAULT_AVAILABLE_AMOUNT.intValue())))
             .andExpect(jsonPath("$.[*].sokdAmount").value(hasItem(DEFAULT_SOKD_AMOUNT.intValue())));
     }
-    
+
     @Test
     @Transactional
     public void getCoffeAmount() throws Exception {
@@ -206,7 +206,7 @@ public class CoffeAmountResourceIT {
         assertThat(coffeAmountList).hasSize(databaseSizeBeforeUpdate);
         CoffeAmount testCoffeAmount = coffeAmountList.get(coffeAmountList.size() - 1);
         assertThat(testCoffeAmount.getAvailableAmount()).isEqualTo(UPDATED_AVAILABLE_AMOUNT);
-        assertThat(testCoffeAmount.getSokdAmount()).isEqualTo(UPDATED_SOKD_AMOUNT);
+        assertThat(testCoffeAmount.getSoldAmount()).isEqualTo(UPDATED_SOKD_AMOUNT);
     }
 
     @Test
