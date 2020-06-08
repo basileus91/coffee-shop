@@ -51,11 +51,9 @@ export class CheckoutComponent implements OnInit {
     this.coffeeList = this.shoppingCardService.getProductsFromCard();
     this.coffeeList.forEach(value => {
       this.totalAmountPrice += value.orderedAmount * value.price;
-      console.log(value.orderedAmount);
       this.totalProducts += value.orderedAmount;
     });
     this.isDisabled = false;
-    console.log(this.totalProducts);
   }
 
   previousState() {
@@ -79,7 +77,6 @@ export class CheckoutComponent implements OnInit {
   save() {
     this.isSaving = true;
     const client = this.createFromForm();
-    console.log(client);
     if (client.firstName !== null && client.phoneNumber !== null) {
       this.subscribeToSaveResponse(this.clientService.create(client));
     }
@@ -92,25 +89,31 @@ export class CheckoutComponent implements OnInit {
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IClient>>) {
     result.subscribe(
-      result => {
-        this.onSaveSuccess(result);
+      response => {
+        this.onSaveSuccess(response);
       },
       () => this.onSaveError()
     );
   }
 
   protected onSaveSuccess(result) {
-    console.log(result);
     this.coffeeList.forEach((value: ICoffe) => {
+      console.log(value);
       const orderedCoffee = new OrderedCoffe();
       orderedCoffee.coffe = value.name;
-      orderedCoffee.amount = value.orderedAmount.toString();
+      orderedCoffee.amount = value.orderedAmount;
+      orderedCoffee.price = value.price;
       orderedCoffee.orderId = result.body.order.commandId;
       orderedCoffee.client = result.body.firstName + ' ' + result.body.phoneNumber;
+      orderedCoffee.address =
+        result.body.deliveryAddress !== undefined || result.body.deliveryAddress !== null
+          ? result.body.deliveryAddress
+          : 'adresa nu este furnizată';
       this.orderedCoffeeService.create(orderedCoffee).subscribe();
     });
     this.isSaving = false;
     this.shoppingCardService.shoppingCartChanges.next([]);
+    this.orderedCoffeeService.sendEmail(result.body.order.commandId).subscribe();
     this.router.navigate(['/shop/cart/checkout/completed'], { queryParams: { order: result.body.order.commandId } });
   }
 

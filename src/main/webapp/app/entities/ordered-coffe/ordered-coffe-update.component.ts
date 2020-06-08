@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
+import { HttpResponse } from '@angular/common/http';
+import { FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IOrderedCoffe, OrderedCoffe } from 'app/shared/model/ordered-coffe.model';

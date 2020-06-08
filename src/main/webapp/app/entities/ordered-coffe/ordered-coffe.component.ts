@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { NgForm } from '@angular/forms';
 
 import { IOrderedCoffe } from 'app/shared/model/ordered-coffe.model';
 import { AccountService } from 'app/core';
@@ -61,5 +62,22 @@ export class OrderedCoffeComponent implements OnInit, OnDestroy {
 
   protected onError(errorMessage: string) {
     this.jhiAlertService.error(errorMessage, null, null);
+  }
+
+  onSubmit(f: NgForm) {
+    if (f.value.orderId) {
+      this.orderedCoffeService.findByOrderId(f.value.orderId).subscribe(
+        value => {
+          this.orderedCoffes = value.body;
+          f.reset();
+        },
+        error => {
+          console.log(error);
+          f.reset();
+        }
+      );
+    } else {
+      this.loadAll();
+    }
   }
 }

@@ -23,7 +23,7 @@ describe('Service Tests', () => {
       service = injector.get(OrderedCoffeService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new OrderedCoffe(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new OrderedCoffe(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 2);
     });
 
     describe('Service methods', () => {

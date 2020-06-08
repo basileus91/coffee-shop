@@ -39,4 +39,13 @@ export class OrderedCoffeService {
   delete(id: number): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
+
+  findByOrderId(orderId: string): Observable<HttpResponse<IOrderedCoffe[]>> {
+    return this.http.get<IOrderedCoffe[]>(`${this.resourceUrl}/order/${orderId}`, { observe: 'response' });
+  }
+
+  // findByOrderId(orderId: string, req?: any ): Observable<EntityArrayResponseType> {
+  //   const options = createRequestOption(req);
+  //   return this.http.get<IOrderedCoffe[]>(`${this.resourceUrl}`, { params: options, observe: 'response' });
+  // }
 }

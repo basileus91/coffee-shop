@@ -1,16 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #order {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #order td, #order th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #order tr:nth-child(even){background-color: #f2f2f2;}
+
+        #order tr:hover {background-color: #ddd;}
+
+        #order th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .parent-div{
+            width: 100%;
+        }
+
+        .child-div{
+            text-align: center;
+            float: left;
+            position: relative;
+            width: 26.67%;
+            margin-left: 5% ;
+        }
+    </style>
 </head>
 <body>
-    <ul>
-        <li>
-            <span>order.</span>
-
-        </li>
-    </ul>
-
+    <p>Numele și telefonul clientului:  <span style="font-weight: bold" th:text="${orders[0].client}"></span></p>
+    <p>Id-ul comenzii :  <span style="font-weight: bold" th:text="${orders[0].orderId}"></span></p>
+    <p>Adresa :  <span style="font-weight: bold" th:text="${orders[0].address}"></span></p>
+    <br/>
+    <table id="order">
+        <tr>
+            <th>Cafea</th>
+            <th>Cantitatea</th>
+            <th>Prețul</th>
+            <th>Total</th>
+        </tr>
+        <tr  th:each="order : ${orders}">
+            <td th:text="${order.coffe}"></td>
+            <td th:text="${order.amount}"></td>
+            <td th:text="${order.price}"></td>
+            <td th:text="${order.amount*order.price}"></td>
+        </tr>
+    </table>
+    <p style="float:right">Suma totală spre achitare este  <span style="font-weight: bold" th:text="${totalAmount}"></span>  Lei</p>
 </body>
 </html>

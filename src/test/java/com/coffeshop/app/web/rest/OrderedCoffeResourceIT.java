@@ -43,8 +43,8 @@ public class OrderedCoffeResourceIT {
     private static final String DEFAULT_ORDER_ID = "AAAAAAAAAA";
     private static final String UPDATED_ORDER_ID = "BBBBBBBBBB";
 
-    private static final String DEFAULT_AMOUNT = "AAAAAAAAAA";
-    private static final String UPDATED_AMOUNT = "BBBBBBBBBB";
+    private static final Long DEFAULT_AMOUNT = 4L;
+    private static final Long UPDATED_AMOUNT = 4L;
 
     @Autowired
     private OrderedCoffeRepository orderedCoffeRepository;

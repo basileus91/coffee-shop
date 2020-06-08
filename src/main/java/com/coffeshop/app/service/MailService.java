@@ -88,10 +88,16 @@ public class MailService {
 
     @Async
     public void sendOrderEmail(List<OrderedCoffe> orderedCoffes, String templateName, String titleKey) {
+        Double totalAmount = 0D;
+        for(int i=0; i < orderedCoffes.size(); i++){
+            totalAmount += orderedCoffes.get(i).getAmount()*orderedCoffes.get(i).getPrice();
+        };
+
         Locale locale = Locale.forLanguageTag("ro");
         Context context = new Context(locale);
 //        context.setVariable(USER, user);
         context.setVariable("orders", orderedCoffes);
+        context.setVariable("totalAmount", totalAmount);
         context.setVariable(BASE_URL, jHipsterProperties.getMail().getBaseUrl());
         String content = templateEngine.process(templateName, context);
         String subject = messageSource.getMessage(titleKey, null, locale);

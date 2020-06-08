@@ -73,6 +73,12 @@
                             <span jhiTranslate="global.menu.entities.coffeAmount">Coffe Amount</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="ordered-coffe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span>Comenzi</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

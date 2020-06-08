@@ -50,7 +50,6 @@ export class NavbarComponent implements OnInit {
     });
     this.shoppingCardService.shoppingCartChanges.subscribe(value => {
       this.amountInCart = value.length;
-      console.log(value);
     });
   }
 

@@ -9,6 +9,7 @@ import { OrderedCoffeService } from 'app/entities/ordered-coffe';
   styleUrls: ['./finished-order.component.scss']
 })
 export class FinishedOrderComponent implements OnInit {
+  orderId: string;
   constructor(
     private shoppingCardService: ShoppingCardService,
     private route: ActivatedRoute,
@@ -18,11 +19,11 @@ export class FinishedOrderComponent implements OnInit {
   ngOnInit() {
     this.shoppingCardService.removeAllFromCard();
     this.route.queryParams.subscribe(param => {
-      console.log(param.order);
-      if (param.order !== null && param.order !== undefined) {
-        this.orderedCoffeeService.sendEmail(param.order).subscribe();
-        console.log(param.order);
-      }
+      this.orderId = param.order;
+      // if (param.order !== null && param.order !== undefined) {
+      //   this.orderedCoffeeService.sendEmail(param.order).subscribe();
+      //   console.log(param.order);
+      // }
     });
   }
 }

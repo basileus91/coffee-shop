@@ -31,7 +31,13 @@ public class OrderedCoffe implements Serializable {
     private String orderId;
 
     @Column(name = "amount")
-    private String amount;
+    private Long amount;
+
+    @Column(name = "price")
+    private Double price;
+
+    @Column(name = "address")
+    private String address;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -81,19 +87,45 @@ public class OrderedCoffe implements Serializable {
         this.orderId = orderId;
     }
 
-    public String getAmount() {
+    public Long getAmount() {
         return amount;
     }
 
-    public OrderedCoffe amount(String amount) {
+    public OrderedCoffe amount(Long amount) {
         this.amount = amount;
         return this;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public OrderedCoffe price(Double price) {
+        this.price = price;
+        return this;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public OrderedCoffe address(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -119,6 +151,8 @@ public class OrderedCoffe implements Serializable {
             ", client='" + getClient() + "'" +
             ", orderId='" + getOrderId() + "'" +
             ", amount='" + getAmount() + "'" +
+            ", price='" + getPrice() + "'" +
+            ", address='" + getAddress() + "'" +
             "}";
     }
 }

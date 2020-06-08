@@ -27,7 +27,15 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="amount" type="varchar(255)">
+            <column name="amount" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="price" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="address" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 

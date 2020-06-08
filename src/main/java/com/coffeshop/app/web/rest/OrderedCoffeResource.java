@@ -134,4 +134,17 @@ public class OrderedCoffeResource {
         orderedCoffeRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+
+    /**
+     * {@code GET  /ordered-coffes/order/{orderId}} : get all the orderedCoffees by Order Id.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of orderedCoffees in body.
+     */
+    @GetMapping(value = "/ordered-coffes/order/{orderId}")
+    public List<OrderedCoffe> getAllOrderedCoffesByOrderId(@PathVariable(value="orderId") String orderId) {
+        log.debug("REST request to get all OrderedCoffes");
+        System.out.println(orderId);
+        log.debug("REST request to get all OrderedCoffes{}",orderedCoffeRepository.findAllByOrderId(orderId) );
+        return orderedCoffeRepository.findAllByOrderId(orderId);
+    }
 }

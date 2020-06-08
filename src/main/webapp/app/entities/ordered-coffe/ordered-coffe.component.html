@@ -1,13 +1,20 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="coffeshopApp.orderedCoffe.home.title">Ordered Coffes</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ordered-coffe" [routerLink]="['/ordered-coffe/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="coffeshopApp.orderedCoffe.home.createLabel">
-            Create new Ordered Coffe
-            </span>
-        </button>
-    </h2>
+<!--    <h2 id="page-heading">-->
+<!--        <span jhiTranslate="coffeshopApp.orderedCoffe.home.title">Ordered Coffes</span>-->
+<!--        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ordered-coffe" [routerLink]="['/ordered-coffe/new']">-->
+<!--            <fa-icon [icon]="'plus'"></fa-icon>-->
+<!--            <span  jhiTranslate="coffeshopApp.orderedCoffe.home.createLabel">-->
+<!--            Create new Ordered Coffe-->
+<!--            </span>-->
+<!--        </button>-->
+<!--    </h2>-->
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="row">
+            <input type="text" placeholder="Caută după id comandă" #orderId ngModel name="orderId">
+            <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Caută</button>
+        </div>
+    </form>
+
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="orderedCoffes?.length === 0">

@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
     this.registerAuthenticationSuccess();
     this.coffeService.getAll().subscribe(value => {
       this.coffeList = value.body;
-      console.log(this.coffeList);
     });
     this.inputError = false;
   }
