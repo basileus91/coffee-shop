@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   coffeList: Coffe[] = [];
   inputError: boolean;
   @ViewChild('amount', { static: false }) amount: ElementRef;
+  images = [944, 1011, 984].map(n => `https://picsum.photos/id/${n}/900/500`);
 
   constructor(
     private accountService: AccountService,

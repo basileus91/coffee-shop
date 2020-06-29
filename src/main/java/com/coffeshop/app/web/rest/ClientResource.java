@@ -70,7 +70,13 @@ public class ClientResource {
         Order orderResult = orderRepository.save(order);
 
         client.setOrder(orderResult);
-        Client result = clientRepository.save(client);
+        Client result = null;
+        Optional<Client> clientFromDB = clientRepository.findByPhoneNumber(client.getPhoneNumber());
+        if(!clientFromDB.isPresent()){
+            result = clientRepository.save(client);
+        } else {
+            result = clientFromDB.get();
+        }
 
         return ResponseEntity.created(new URI("/api/clients/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
