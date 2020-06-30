@@ -1,6 +1,23 @@
 <div class="container">
+
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary" (click)="findBy('boabe')">Boabe</button>
+            <button type="button" class="btn btn-secondary" (click)="findBy('capsule')">Capsule</button>
+            <button type="button" class="btn btn-secondary" (click)="findBy('crescator')">A-Z↓</button>
+            <button type="button" class="btn btn-secondary" (click)="findBy('descrescator')">A-Z↑</button>
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div style="cursor: pointer" class="input-group-text" id="btnGroupAddon" (click)="findByName(name)">Caută</div>
+            </div>
+            <input #name ngModel name="name" (ngModelChange)="findByName(name.value)" type="text" class="form-control" placeholder="Caută după nume" aria-label="Input group example" aria-describedby="btnGroupAddon">
+        </div>
+        <button style="display: block; margin-left: auto;margin-right: 0;" type="button" class="btn btn-danger float-right" (click)="clearFilter()">X</button>
+    </div>
+
     <div class="row">
-        <div *ngFor="let coffe of coffeList" class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <div *ngFor="let coffe of isFiltered? filteredCoffeeList :coffeList" class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
             <div class="card-deck" style="padding-bottom: 10px;">
                 <div class="card cart-hover" style="width: 18rem;" >
                     <img src="data:image/png;base64,{{coffe.photo}}" class="card-img-top" alt="image">

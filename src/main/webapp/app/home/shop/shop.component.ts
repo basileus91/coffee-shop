@@ -18,6 +18,9 @@ export class ShopComponent implements OnInit {
   coffeList: Coffe[] = [];
   inputError: boolean;
   @ViewChild('amount', { static: false }) amount: ElementRef;
+  @ViewChild('name', { static: false }) name: ElementRef;
+  isFiltered = false;
+  filteredCoffeeList: Coffe[] = [];
 
   constructor(
     private accountService: AccountService,
@@ -61,5 +64,50 @@ export class ShopComponent implements OnInit {
       this.shoppingCardService.addToCart(form.value.amount, coffe);
       form.reset();
     }
+  }
+
+  findBy(input: string) {
+    if (input === 'boabe') {
+      this.isFiltered = true;
+      this.filteredCoffeeList = this.coffeList.filter(coffee => {
+        return coffee.region.name === 'Cafea Boabe';
+      });
+    } else if (input === 'capsule') {
+      this.isFiltered = true;
+      this.filteredCoffeeList = this.coffeList.filter(coffee => {
+        return coffee.region.name === 'Cafea Capsule';
+      });
+    } else if (input === 'crescator') {
+      this.isFiltered = true;
+      this.filteredCoffeeList = this.coffeList.sort((a, b) => {
+        if (a.name.charAt(0).toLowerCase() > b.name.charAt(0).toLowerCase()) {
+          return 1;
+        } else if (a.name.charAt(0).toLowerCase() < b.name.charAt(0).toLowerCase()) {
+          return -1;
+        }
+        return 0;
+      });
+    } else if (input === 'descrescator') {
+      this.isFiltered = true;
+      this.filteredCoffeeList = this.coffeList.sort((a, b) => {
+        if (a.name.charAt(0).toLowerCase() < b.name.charAt(0).toLowerCase()) {
+          return 1;
+        } else if (a.name.charAt(0).toLowerCase() > b.name.charAt(0).toLowerCase()) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+  }
+
+  findByName(name: string) {
+    this.isFiltered = true;
+    this.filteredCoffeeList = this.coffeList.filter(coffee => {
+      return coffee.name.toLowerCase().includes(name.toLowerCase());
+    });
+  }
+
+  clearFilter() {
+    this.isFiltered = false;
   }
 }
