@@ -35,6 +35,8 @@
     "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "ro",
-    "languages": ["ro", "en", "ru"]
+    "languages": ["ro", "en", "ru"],
+    "herokuAppName": "thawing-temple-29560",
+    "herokuDeployType": "git"
   }
 }

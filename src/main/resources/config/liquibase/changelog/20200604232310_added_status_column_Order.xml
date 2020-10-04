@@ -8,7 +8,7 @@
     -->
     <changeSet author="vasile_furdui" id="20200604232310">
         <addColumn tableName="jhi_order" schemaName="public">
-            <column name="status" type="varchar(255)">
+            <column name="status" type="integer">
                 <constraints nullable="true"/>
             </column>
         </addColumn>
