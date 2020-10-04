@@ -37,7 +37,7 @@
     "@angular/cli": "8.0.2",
     "@angular/compiler-cli": "8.0.0",
     "@ngtools/webpack": "8.0.2",
-    "@types/jest": "24.0.14",
+    "@types/jest": "20.0.8",
     "@types/node": "10.12.27",
     "angular-router-loader": "0.8.5",
     "angular2-template-loader": "0.6.2",
