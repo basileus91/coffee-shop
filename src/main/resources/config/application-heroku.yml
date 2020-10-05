@@ -12,7 +12,7 @@
 
 eureka:
   instance:
-    hostname: thawing-temple-29560.herokuapp.com
+    hostname: cafea-espresso.herokuapp.com
     non-secure-port: 80
     prefer-ip-address: false
 

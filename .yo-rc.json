@@ -36,7 +36,7 @@
     "enableTranslation": true,
     "nativeLanguage": "ro",
     "languages": ["ro", "en", "ru"],
-    "herokuAppName": "thawing-temple-29560",
+    "herokuAppName": "cafea-espresso",
     "herokuDeployType": "git"
   }
 }
