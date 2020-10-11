@@ -42,7 +42,8 @@ import {
   faHome,
   faShoppingBasket,
   faShoppingCart,
-  faMinus
+  faMinus,
+  faSearchPlus
 } from '@fortawesome/free-solid-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page

@@ -7,13 +7,14 @@
             <button type="button" class="btn btn-secondary" (click)="findBy('crescator')">A-Z↓</button>
             <button type="button" class="btn btn-secondary" (click)="findBy('descrescator')">A-Z↑</button>
         </div>
-        <div class="input-group">
+        <div class="input-group mr-2">
             <div class="input-group-prepend">
                 <div style="cursor: pointer" class="input-group-text" id="btnGroupAddon" (click)="findByName(name)">Caută</div>
             </div>
-            <input #name ngModel name="name" (ngModelChange)="findByName(name.value)" type="text" class="form-control" placeholder="Caută după nume" aria-label="Input group example" aria-describedby="btnGroupAddon">
+            <input #name ngModel name="name" (ngModelChange)="findByName(name.value)" type="text" class="form-control input-size" placeholder="Caută după nume" aria-label="Input group example" aria-describedby="btnGroupAddon">
+            <button type="button" class="btn btn-danger d-block d-sm-none" (click)="clearFilter()">X</button>
         </div>
-        <button style="display: block; margin-left: auto;margin-right: 0;" type="button" class="btn btn-danger float-right" (click)="clearFilter()">X</button>
+        <button type="button" class="ml-auto btn btn-danger d-none d-sm-block" (click)="clearFilter()">X</button>
     </div>
 
     <div class="row">
@@ -26,7 +27,7 @@
                         <p class="card-text text-wrapper" [title]="coffe?.description">{{coffe?.description}}</p>
                         <form style="padding-left: 5%;" #f="ngForm" (ngSubmit)="onSubmit(f,coffe)">
                             <div class="row">
-                                <input min="1" [disabled]="coffe.quantity<1" type="number" placeholder="Introduceți în coș" #amount ngModel name="amount">
+                                <input class="input-size" min="1" [disabled]="coffe.quantity<1" type="number" placeholder="Introduceți în coș" #amount ngModel name="amount">
                                 <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Adăuga</button>
                             </div>
                         </form>

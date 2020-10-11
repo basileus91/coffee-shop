@@ -7,7 +7,7 @@
     <!-- Product #1 -->
     <div *ngFor="let coffee of coffeeList" class="item">
         <div class="buttons">
-            <i (click)="removeFromList(coffee.id)" class="fa fa-remove" style="font-size: 20px;color: red; cursor: pointer"></i>
+            <fa-icon (click)="removeFromList(coffee.id)" icon="remove" style="font-size: 20px;color: red; cursor: pointer"></fa-icon>
 <!--            <span class="delete-btn"></span>-->
 <!--            <span class="like-btn"></span>-->
         </div>
@@ -23,11 +23,11 @@
 
         <div class="quantity">
             <button class="plus-btn" type="button" name="button" (click)="addAmount(coffee)">
-                <fa-icon class="plus"></fa-icon>
+                <fa-icon icon="plus"></fa-icon>
             </button>
             <span>{{coffee?.orderedAmount}}</span>
             <button class="minus-btn" type="button" name="button" (click)="removeAmount(coffee)">
-                <fa-icon class="minus"></fa-icon>
+                <fa-icon icon="minus"></fa-icon>
             </button>
         </div>
 
