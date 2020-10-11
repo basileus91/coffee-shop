@@ -1,0 +1,68 @@
+:root {
+  --color-chevron: #dd5fbe;
+  --color-mug: #0092d2;
+  --color-coffee: #a05425;
+  /*--color-round: #1a1a1a;*/
+}
+
+/*body{*/
+/*  margin: 0;*/
+/*  background: var(--color-round)*/
+/*}*/
+
+main {
+  margin: 0;
+  height: 100vh;
+}
+
+.mugContainer {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mug {
+  position: relative;
+  width: 40px;
+  height: 45px;
+  border-radius: 0 0 15px 15px;
+  border-left: 5px solid var(--color-mug);
+  border-bottom: 5px solid var(--color-mug);
+  border-right: 5px solid var(--color-mug);
+  background: var(--color-round);
+}
+
+.coffee {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  margin: 2px;
+  background: var(--color-coffee);
+  border-radius: 0 0 6px 6px;
+  animation: coffee 5s ease-in-out infinite alternate-reverse;
+}
+
+.mug:after {
+  content: '';
+  position: absolute;
+  right: calc(-100% + 20px);
+  top: 7px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 5px solid var(--color-mug);
+  z-index: -1;
+}
+
+@keyframes coffee {
+  from {
+    top: calc(100% - 45px);
+  }
+
+  to {
+    top: calc(100% - 7px);
+  }
+}
