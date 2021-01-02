@@ -4,8 +4,8 @@
         <div class="btn-group mr-2" role="group" aria-label="First group">
             <button type="button" class="btn btn-secondary" (click)="findBy('boabe')">Boabe</button>
             <button type="button" class="btn btn-secondary" (click)="findBy('capsule')">Capsule</button>
-            <button type="button" class="btn btn-secondary" (click)="findBy('crescator')">A-Z↓</button>
-            <button type="button" class="btn btn-secondary" (click)="findBy('descrescator')">A-Z↑</button>
+<!--            <button type="button" class="btn btn-secondary" (click)="findBy('crescator')">A-Z↓</button>-->
+<!--            <button type="button" class="btn btn-secondary" (click)="findBy('descrescator')">A-Z↑</button>-->
         </div>
         <div class="input-group mr-2">
             <div class="input-group-prepend">
@@ -19,18 +19,18 @@
 
     <div class="row">
         <div *ngFor="let coffe of isFiltered? filteredCoffeeList :coffeList" class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-            <div class="card-deck" style="padding-bottom: 10px;">
-                <div class="card cart-hover" style="width: 18rem;" >
+            <div class="card-deck" style="padding-bottom: 10px; width: 270px;">
+                <div class="card cart-hover" style="width: 18rem; cursor: pointer" (click)="onSubmit(coffe)">
                     <img src="data:image/png;base64,{{coffe.photo}}" class="card-img-top" alt="image">
                     <div class="card-body">
                         <h5 class="card-title">{{coffe?.name}} {{coffe?.price}} Lei</h5>
                         <p class="card-text text-wrapper" [title]="coffe?.description">{{coffe?.description}}</p>
-                        <form style="padding-left: 5%;" #f="ngForm" (ngSubmit)="onSubmit(f,coffe)">
-                            <div class="row">
-                                <input class="input-size" min="1" [disabled]="coffe.quantity<1" type="number" placeholder="Introduceți în coș" #amount ngModel name="amount">
-                                <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Adăuga</button>
-                            </div>
-                        </form>
+<!--                        <form style="padding-left: 5%;" #f="ngForm" (ngSubmit)="onSubmit(f,coffe)">-->
+<!--                            <div class="row">-->
+<!--&lt;!&ndash;                                <input class="input-size" min="1" [disabled]="coffe.quantity<1" type="number" placeholder="Introduceți în coș" #amount ngModel name="amount">&ndash;&gt;-->
+<!--                                <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Adăuga</button>-->
+<!--                            </div>-->
+<!--                        </form>-->
                         <div *ngIf="coffe.quantity<1" class="alert-danger">Stocul este gol</div>
                         <!--                        <div *ngIf="inputError && coffe"class="alert-danger">Valoarea minimă de adăugare este o unitate</div>-->
                     </div>

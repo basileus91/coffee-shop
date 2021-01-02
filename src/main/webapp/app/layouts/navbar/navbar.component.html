@@ -23,8 +23,23 @@
                 <a class="nav-link" routerLink="/shop" (click)="collapseNavbar()">
                     <span>
                         <fa-icon icon="shopping-basket"></fa-icon>
-<!--                        <i class="fa fa-shopping-basket"></i>-->
-                        <span>Magazin</span>
+                        <span jhiTranslate="global.menu.shop">Magazin</span>
+                    </span>
+                </a>
+            </li>
+
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/about-us" (click)="collapseNavbar()">
+                    <span>
+                        <span jhiTranslate="global.menu.about-us">Despre Noi</span>
+                    </span>
+                </a>
+            </li>
+
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/contacts" (click)="collapseNavbar()">
+                    <span>
+                        <span jhiTranslate="global.menu.contacts">Contacte</span>
                     </span>
                 </a>
             </li>

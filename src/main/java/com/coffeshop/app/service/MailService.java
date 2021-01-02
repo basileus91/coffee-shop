@@ -128,4 +128,17 @@ public class MailService {
         System.out.println(orderedCoffes);
         sendOrderEmail(orderedCoffes,"mail/orderEmail", "email.order.title");
     }
+
+    @Async
+    public void sendContactEmail(String name, String email, String message) {
+        Locale locale = Locale.forLanguageTag("ro");
+        Context context = new Context(locale);
+        context.setVariable("name", name);
+        context.setVariable("email", email);
+        context.setVariable("message", message);
+        context.setVariable(BASE_URL, jHipsterProperties.getMail().getBaseUrl());
+        String content = templateEngine.process("mail/contact-email", context);
+        String subject = messageSource.getMessage("email.contact-me.subject", null, locale);
+        sendEmail("vasiafurdui@yahoo.com", subject, content, false, true);
+    }
 }

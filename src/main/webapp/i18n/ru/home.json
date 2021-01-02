@@ -16,6 +16,12 @@
       "follow": "пользователь @java_hipster в Twitter"
     },
     "like": "Если вам нравится Cafea espresso, не забудьте дать нам звёздочку на",
-    "github": "GitHub"
+    "github": "GitHub",
+    "contact-us": "Связаться с нами",
+    "leave-message": "Пожалуйста, оставьте нам сообщение, чтобы связаться с вами",
+    "name": "Имя",
+    "email": "Эл. почта",
+    "message": "Cообщение",
+    "send": "Отправить"
   }
 }

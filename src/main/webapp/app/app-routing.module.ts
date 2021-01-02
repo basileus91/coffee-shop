@@ -6,6 +6,8 @@ import { CartComponent } from 'app/home/cart/cart.component';
 import { CheckoutComponent } from 'app/home/checkout/checkout.component';
 import { FinishedOrderComponent } from 'app/home/finished-order/finished-order.component';
 import { ShopComponent } from 'app/home/shop/shop.component';
+import { AboutUsComponent } from 'app/home/about-us/about-us.component';
+import { ContactsComponent } from 'app/home/contacts/contacts.component';
 
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
@@ -23,6 +25,22 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           data: {
             authorities: [],
             pageTitle: 'home.titleCart'
+          }
+        },
+        {
+          path: 'about-us',
+          component: AboutUsComponent,
+          data: {
+            authorities: [],
+            pageTitle: 'global.menu.about-us'
+          }
+        },
+        {
+          path: 'contacts',
+          component: ContactsComponent,
+          data: {
+            authorities: [],
+            pageTitle: 'global.menu.contacts'
           }
         },
         {

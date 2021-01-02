@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { IOrderedCoffe } from 'app/shared/model/ordered-coffe.model';
+import { ContactEmail } from 'app/shared/model/contact-email.model';
 
 type EntityResponseType = HttpResponse<IOrderedCoffe>;
 type EntityArrayResponseType = HttpResponse<IOrderedCoffe[]>;
@@ -48,4 +49,8 @@ export class OrderedCoffeService {
   //   const options = createRequestOption(req);
   //   return this.http.get<IOrderedCoffe[]>(`${this.resourceUrl}`, { params: options, observe: 'response' });
   // }
+
+  sendContactEmail(contactEmail: ContactEmail): Observable<EntityResponseType> {
+    return this.http.post<any>(`${this.resourceUrl}/send-contact-email`, contactEmail, { observe: 'response' });
+  }
 }

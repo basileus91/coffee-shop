@@ -3,6 +3,7 @@ package com.coffeshop.app.web.rest;
 import com.coffeshop.app.domain.OrderedCoffe;
 import com.coffeshop.app.repository.OrderedCoffeRepository;
 import com.coffeshop.app.service.MailService;
+import com.coffeshop.app.service.dto.ContactEmail;
 import com.coffeshop.app.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -146,5 +147,20 @@ public class OrderedCoffeResource {
         System.out.println(orderId);
         log.debug("REST request to get all OrderedCoffes{}",orderedCoffeRepository.findAllByOrderId(orderId) );
         return orderedCoffeRepository.findAllByOrderId(orderId);
+    }
+
+    /**
+     * {@code GET  /ordered-coffes/send-contact-email} : send contact email.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)}.
+     */
+    @PostMapping("/ordered-coffes/send-contact-email")
+    public ResponseEntity sendContactEmail(@RequestBody ContactEmail email) {
+        System.out.println(email);
+        log.debug("REST request to get OrderedCoffe : {}", email.getName());
+        log.debug("REST request to get OrderedCoffe : {}", email.getEmail());
+        log.debug("REST request to get OrderedCoffe : {}", email.getMessage());
+        mailService.sendContactEmail(email.getName(), email.getEmail(), email.getMessage());
+        return ResponseEntity.ok(true);
     }
 }

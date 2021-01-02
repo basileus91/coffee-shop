@@ -57,13 +57,17 @@ export class ShopComponent implements OnInit {
     this.modalRef = this.loginModalService.open();
   }
 
-  onSubmit(form: NgForm, coffe: ICoffe) {
-    if (form.value.amount < 1) {
-      this.inputError = true;
-    } else {
-      this.shoppingCardService.addToCart(form.value.amount, coffe);
-      form.reset();
-    }
+  // onSubmit(form: NgForm, coffe: ICoffe) {
+  //   if (form.value.amount < 1) {
+  //     this.inputError = true;
+  //   } else {
+  //     this.shoppingCardService.addToCart(form.value.amount, coffe);
+  //     form.reset();
+  //   }
+  // }
+
+  onSubmit(coffe: ICoffe) {
+    this.shoppingCardService.addToCart(1, coffe);
   }
 
   findBy(input: string) {

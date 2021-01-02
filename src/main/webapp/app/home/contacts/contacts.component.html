@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 jhiTranslate="home.contact-us">Contactează-ne</h2>
+    <p jhiTranslate="home.leave-message">Vă rugăm să ne lăsați un mesaj pentru a vă contacta</p>
+    <div class="col-75">
+        <div class="container">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="field_lastName" jhiTranslate="home.name"><i class="fa fa-user"></i>Nume</label>
+                        <input type="text" class="form-control" name="lastName" id="field_lastName"
+                               formControlName="lastName"/>
+
+                        <label for="field_email" jhiTranslate="home.email"><i class="fa fa-user"></i>Email</label>
+                        <input type="text" class="form-control" name="email" id="field_email"
+                               formControlName="email">
+
+                        <label for="field_feedback" jhiTranslate="home.message"><i class="fa fa-envelope"></i>Mesaj</label>
+                        <textarea type="text" rows="4" class="form-control" name="feedback" id="field_feedback"
+                                  formControlName="feedback"></textarea>
+                    </div>
+                </div>
+                <button [disabled]="editForm.invalid" type="submit"  class="btn" [className]="!editForm.invalid ? 'btn' : 'btn-invalid'" jhiTranslate="home.send">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

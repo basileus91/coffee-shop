@@ -16,6 +16,12 @@
       "follow": "Contactează @java_hipster pe Twitter"
     },
     "like": "Dacă iți place Cafea espresso nu uita să ne dai o stea pe",
-    "github": "GitHub"
+    "github": "GitHub",
+    "contact-us": "Contactează-ne",
+    "leave-message": "Vă rugăm să ne lăsați un mesaj pentru a vă contacta",
+    "name": "Nume",
+    "email": "Email",
+    "message": "Mesaj",
+    "send": "Trimite"
   }
 }

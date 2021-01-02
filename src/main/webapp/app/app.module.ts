@@ -20,6 +20,8 @@ import { CoffeshopEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { SlideshowModule } from 'ng-simple-slideshow';
+import { NgEsriMapModule } from 'ng-esri-map';
 
 @NgModule({
   imports: [
@@ -38,7 +40,9 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     CoffeshopAccountModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     CoffeshopEntityModule,
-    CoffeshopAppRoutingModule
+    CoffeshopAppRoutingModule,
+    SlideshowModule,
+    NgEsriMapModule
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   providers: [

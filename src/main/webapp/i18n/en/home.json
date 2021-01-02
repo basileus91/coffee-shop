@@ -16,6 +16,12 @@
       "follow": "follow @java_hipster on Twitter"
     },
     "like": "If you like Coffee Espresso, don't forget to give us a star on",
-    "github": "GitHub"
+    "github": "GitHub",
+    "contact-us": "Contact Us",
+    "leave-message": "Please leave us a message to contact you",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send"
   }
 }
